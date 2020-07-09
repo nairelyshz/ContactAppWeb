@@ -1,6 +1,6 @@
 function contacts(params){
     const app = params;
-    console.log("paso");
+
     // Get all contact
     app.get('/contacts', function (req, res) {
         res.send('[GET]Saludos desde express');
