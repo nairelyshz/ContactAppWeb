@@ -4,7 +4,6 @@ var admin = require('firebase-admin');
 var serviceAccount = require("../contactsapp-f8965-firebase-adminsdk-9vl00-fe047f4161.json");
 
 function databaseConfig(){
-        console.log('config');
         admin.initializeApp({
             apiKey: "AIzaSyBp8TWtxrT5GfVj24rplZu77uQDjUrJrWI",
             authDomain: "contactsapp-f8965.firebaseapp.com",
@@ -16,8 +15,7 @@ function databaseConfig(){
             measurementId: "G-HPHCT4PGVW",
             credential: admin.credential.cert(serviceAccount),
         });
-        this.db = admin.database();
-        return this.db;
+        return admin;
     
 }
 
