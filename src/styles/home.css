@@ -1,14 +1,12 @@
 .row-new-contact{
     width: 100%;
-    height: 30vh;
-    background-color: tomato;
+    height: 40vh;
     display: flex;
     margin-bottom: 3%;
 }
 .view-new-contact{
     width: 50%;
     height: 100%;
-    background-color: purple;
     display: flex;
     justify-content: center;
     padding: 0.5%;
@@ -16,14 +14,12 @@
 .new-contact{
     width: 50%;
     height: 100%;
-    background-color: yellow;
     display: flex;
     justify-content: center;
     padding: 0.5%;
 }
 
 .list-contact{
-    background-color: yellowgreen;
     width: 100%;
     height: 100vh;
     padding: 5%;

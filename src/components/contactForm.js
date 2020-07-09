@@ -1,7 +1,9 @@
 import React from 'react';
-
+import '../styles/contactForm.css';
 class ContactForm extends React.Component {
   handleClick = e => {
+    e.preventDefault();
+
     console.log('Button was clicked');
   };
 
@@ -13,13 +15,12 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>New Attendant</h1>
-
-        <form onSubmit={this.handleSubmit}>
+      <div className="contact-form">
+        
+        <form onSubmit={this.props.updateList}>
         <div className="form-group">
-            <label>First Name</label>
             <input
+              placeholder='First name'
               onChange={this.props.onChange}
               className="form-control"
               type="text"
@@ -28,8 +29,8 @@ class ContactForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Last Name</label>
             <input
+              placeholder='Last name'
               onChange={this.props.onChange}
               className="form-control"
               type="text"
@@ -39,8 +40,8 @@ class ContactForm extends React.Component {
           </div>
 
           <div className="form-group">
-            <label>Email</label>
             <input
+              placeholder='Email'
               onChange={this.props.onChange}
               className="form-control"
               type="email"
@@ -51,8 +52,8 @@ class ContactForm extends React.Component {
 
           
           <div className="form-group">
-            <label>Contact Number</label>
             <input
+              placeholder='Contact Number'
               onChange={this.props.onChange}
               className="form-control"
               type="tel"
@@ -61,7 +62,7 @@ class ContactForm extends React.Component {
             />
           </div>
 
-          <button onClick={this.handleClick} className="btn btn-primary">
+          <button  className="btn btn-primary">
             Save
           </button>
 

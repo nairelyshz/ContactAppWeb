@@ -1,0 +1,15 @@
+.ContactsList li{
+    list-style-type: none;
+}
+
+.ContactsListItem{
+    width: 50%;
+    padding: 3%;
+    border-radius: 10px;
+    background-color: rgba(29, 191, 115, 0.2);
+    margin-bottom: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+
+
+}
+
