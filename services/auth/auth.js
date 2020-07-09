@@ -1,9 +1,20 @@
-function auth(params){
-    const app = params;
 
+function auth(express, database){
+    const app = express;
+
+    
+    const AuthController = require('./authController');
+    const controller = new AuthController(database);
+    
     //register
     app.post('/register', function (req, res) {
-        res.send('[POST]Saludos desde express');
+        if(controller.createUser(req.body)){
+            res.send('[POST]Saludos desde express');
+
+        }else{
+            res.send('Error');
+
+        };
     });
     
     //login

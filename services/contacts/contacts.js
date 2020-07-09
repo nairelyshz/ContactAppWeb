@@ -1,4 +1,4 @@
-function contacts(params){
+function contacts(params, database){
     const app = params;
 
     // Get all contact
