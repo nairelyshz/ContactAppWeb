@@ -7,8 +7,15 @@ function auth(express, admin){
     const controller = new AuthController(admin);
     
     //register
-    app.post('/register', function (req, res) {
-        if(controller.createUser(req.body)){
+    app.post('/register', async (req, res) => {
+        controller.createUser(req.body).then(response =>{
+            console.log("response" + response.json());
+        })
+        .catch(err=>{
+            console.log("err " + err);
+        });
+        const isSuccess = await true;
+        if(isSuccess){
             res.send({status: 200, message: 'User created', data: req.body});
         }else{
             res.send({status: 500, message: 'Try later'});

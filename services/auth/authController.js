@@ -6,29 +6,18 @@ class authController{
         this.admin = admin;
     }
     
-    createUser(data){
+    async createUser(data){
 
-        this.admin.auth().createUser({
-            uid: data.email,
+        return await this.admin.auth().createUser({
+            uid: data.uid,
             email: data.email,
             emailVerified: false,
             phoneNumber: data.contactNumber,
             password: data.password,
             displayName: data.firstName +' '+ data.lastName,
             disabled: false
-        })
-        .then(function(userRecord) {
-            // See the UserRecord reference doc for the contents of userRecord.
-            console.log('Successfully created new user:', userRecord.uid);
-            this.admin.database().ref('users').push(data);
-            console.log("user created");
-            return true;
-
-        })
-        .catch(function(error) {
-            console.log('Error creating new user:', error);
-            return false;
         });
+        
           
     }
 

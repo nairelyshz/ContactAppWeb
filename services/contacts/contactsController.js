@@ -7,8 +7,8 @@ class contactsController{
     }
     
     async getAllContacts(){
-        const snap = await getAllContactsFromFirebase();
-        this.exportLikeArray(snap);
+        const snap = await this.getAllContactsFromFirebase();
+        return this.exportLikeArray(snap);
     }
 
     async getAllContactsFromFirebase(){
