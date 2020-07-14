@@ -25,6 +25,8 @@ function auth(express, admin){
     
     //login
     app.post('/login', function (req, res) {
+        console.log(req);
+        console.log(req.body)
         const flag = controller.login(req.body);
         console.log(flag);
         if(flag){
