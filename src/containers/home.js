@@ -3,6 +3,7 @@ import '../styles/home.css';
 import Contact from '../components/contact';
 import ContactForm from '../components/contactForm';
 import ContactList from '../components/contactList';
+import ContactsApi from '../services/contactsApi';
 
 class Home extends React.Component{
     state = {
@@ -14,26 +15,38 @@ class Home extends React.Component{
         },
         data: []
       };
-    contacts=[];
-    
-      handleChange = e => {
-        e.preventDefault();
+    constructor(){
+      super();
+      this.contacts = [];
+      this.api = new ContactsApi();
 
-        console.log(e.target.value);
-        this.setState({
-          form: {
-            ...this.state.form,
-            [e.target.name]: e.target.value,
-          },
+    }
+    async componentDidMount(){
+      this.api.getAllcontacts().then((response)=>{
+        console.log("ya volvio la peticion ",response.json());
         
-        });
-      };
-      handleUpdateList = (e) =>{
-        e.preventDefault();
-        this.contacts.push(this.state.form);
-        console.log(this.contacts);
-        this.setState({data:this.contacts})
-      }
+      });
+      this.setState({data: this.contacts});
+      console.log(this.state);
+    }
+    handleChange = e => {
+      e.preventDefault();
+
+      console.log(e.target.value);
+      this.setState({
+        form: {
+          ...this.state.form,
+          [e.target.name]: e.target.value,
+        },
+      
+      });
+    };
+    handleUpdateList = (e) =>{
+      e.preventDefault();
+      this.contacts.push(this.state.form);
+      console.log(this.contacts);
+      this.setState({data:this.contacts})
+    }
       render(){
         return (
             <div className="home">

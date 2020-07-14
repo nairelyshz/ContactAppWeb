@@ -1,5 +1,8 @@
 import React from 'react';
+import ContactsApi from '../services/contactsApi';
 import '../styles/contactItem.css';
+
+
 class ContactListItem extends React.Component{
 
 
@@ -20,6 +23,7 @@ class ContactListItem extends React.Component{
 
 
 class ContactList extends React.Component{
+
 
     render(){
         return(<div className="ContactsList">
