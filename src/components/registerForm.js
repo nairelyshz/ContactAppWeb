@@ -13,13 +13,15 @@ class RegisterForm extends React.Component{
     contactNumber: '',
     uid: ''
   };
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();// no hace reload
+    let email = await this.state.email;
+    await this.setState({uid: email});
+    
     this.sendRegister();
   };
 
   sendRegister = (e) => {
-    this.setState({uid: this.state.email});
     
     this.api = new AuthApi();
     this.api.register(this.state).then((response) =>{
@@ -48,6 +50,7 @@ class RegisterForm extends React.Component{
               className="form-control"
               type="text"
               name="firstName"
+              value={this.state.firstName}
             />
           </div>
           <div className="form-group">
@@ -57,6 +60,7 @@ class RegisterForm extends React.Component{
               className="form-control"
               type="text"
               name="lastName"
+              value={this.state.lastName}
             />
           </div>
 
@@ -67,6 +71,7 @@ class RegisterForm extends React.Component{
               className="form-control"
               type="email"
               name="email"
+              value={this.state.email}
             />
           </div>
 
@@ -77,6 +82,7 @@ class RegisterForm extends React.Component{
               className="form-control"
               type="password"
               name="password"
+              value={this.state.password}
             />
           </div>
 
@@ -88,6 +94,7 @@ class RegisterForm extends React.Component{
               className="form-control"
               type="tel"
               name="contactNumber"
+              value={this.state.contactNumber}
             />
           </div>
           {/* <Link to='/home'> */}

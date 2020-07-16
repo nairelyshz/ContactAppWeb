@@ -1,18 +1,17 @@
-
+import axios from 'axios';
 
 class AuthApi {
     baseUrl = 'http://localhost:8080/';
     headers = { "Content-Type": "application/x-www-form-urlencoded" }
     
     async login(data){
-        console.log(data);
-        console.log({method:"POST", body: data, headers: this.headers});
-        return fetch(this.baseUrl + 'login',{method:"POST", body: data, headers: this.headers});
+        return axios.post(this.baseUrl+'login', data)
+        
     }
 
     async register(data){
-        console.log(data);
-        return fetch(this.baseUrl + 'register',{method:"POST", body: data, headers: this.headers});
+        
+        return axios.post(this.baseUrl + 'register',data);
     }
 }
 
