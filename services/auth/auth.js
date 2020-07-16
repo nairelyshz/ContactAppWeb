@@ -8,25 +8,21 @@ function auth(express, admin){
     
     //register
     app.post('/register', async (req, res) => {
+        console.log("register",req.body);
         controller.createUser(req.body).then(response =>{
-            console.log("response" + response.json());
+            res.send({status: 200, message: 'User created', data: response});
+
         })
         .catch(err=>{
-            console.log("err " + err);
+            res.send({status: 500, message: err});
         });
-        const isSuccess = await true;
-        if(isSuccess){
-            res.send({status: 200, message: 'User created', data: req.body});
-        }else{
-            res.send({status: 500, message: 'Try later'});
-
-        };
     });
     
     //login
     app.post('/login', function (req, res) {
-        console.log(req);
-        console.log(req.body)
+        console.log(typeof req.body);
+        console.log(req.body);
+        console.log(JSON.stringify(req.body));
         const flag = controller.login(req.body);
         console.log(flag);
         if(flag){

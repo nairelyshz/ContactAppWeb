@@ -47,18 +47,18 @@ class authController{
 
     }
 
-    login(data){
-        this.admin.auth().getUser(data.email)
-        .then(function(userRecord) {
+    async login(data){
+        console.log(data);
+        console.log("datos",data.email, data.password);
+        await this.admin.auth().getUser(data.email)
+        .then(async (userRecord)=> {
           console.log('Successfully fetched user data:', userRecord.toJSON());
-            return true;
+            return await true;
         })
-        .catch(function(error) {
+        .catch(async (error)=> {
           console.log('Error fetching user data:', error);
-          return false;
+          return await false;
         });
-        console.log("SE VAAAAAAA");
-
       
     }
 }
